@@ -27,7 +27,13 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getSession().removeAttribute("login");
+		request.getSession().removeAttribute("isAdmin");
+		if(request.getSession().getAttribute("userID") != null) {
+			request.getSession().removeAttribute("userID");
+		}
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("SkinServlet");
 	}
 
 	/**

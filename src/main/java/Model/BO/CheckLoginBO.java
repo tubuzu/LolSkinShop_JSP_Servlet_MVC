@@ -9,7 +9,7 @@ public class CheckLoginBO {
 		checkLoginDAO = new CheckLoginDAO();
 	}
 	
-	public boolean checkLogin(String username, String password) {
+	public int checkLogin(String username, String password) {
 		return checkLoginDAO.checkLogin(username, password);
 	}
 }

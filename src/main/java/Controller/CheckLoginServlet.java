@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.BEAN.User;
 import Model.BO.CheckLoginBO;
+import Model.BO.UserBO;
 
 
 @WebServlet("/CheckLoginServlet")
@@ -26,14 +28,20 @@ public class CheckLoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		CheckLoginBO checkLoginBO = new CheckLoginBO();
-		boolean check = checkLoginBO.checkLogin(username, password);
-		request.getSession().setAttribute("login", check);
+		int check = checkLoginBO.checkLogin(username, password);
+		if (check == 1) {
+			UserBO userBO = new UserBO();
+			String userID = userBO.getUserIdByUsernamePassword(username, password);
+			request.getSession().setAttribute("userID", userID);
+		}
+		request.getSession().setAttribute("login", check != 0);
+		request.getSession().setAttribute("isAdmin", check == 2);
 		
 		String currentPage = "";
-		if(check) {
+		if(check != 0) {
 			currentPage = (String) request.getSession().getAttribute("currentPage");
 			if(currentPage == null)
-				currentPage = "PhongbanServlet";
+				currentPage = "SkinServlet";
 		} else {
 			currentPage = "login.jsp";
 		}

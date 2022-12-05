@@ -1,0 +1,184 @@
+@charset "ISO-8859-1";
+
+*, body {
+	font-family: 'Inter', sans-serif;
+	position: relative;
+}
+
+.skin-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	padding: 50px;
+	gap: 15px;
+	position: relative;
+}
+
+.skin {
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+	position: relative;
+	width: 300px;
+	height: 500px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.skin-name {
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	font-size: 24px;
+	font-weight: 700;
+	color: white;
+	text-align: center;
+	word-break: break-word;
+	max-width: 260px;
+	padding: 20px;
+	background: #00000075;
+	min-height: 60px;
+	min-width: calc(100% - 40px);
+}
+
+.skin-price {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 5px;
+	font-size: 18px;
+	font-weight: 700;
+	color: white;
+	text-align: right;
+	padding: 5px 8px;
+	border-radius: 10px;
+	background: #dfdf00;
+	z-index: 2;
+}
+
+.skin:hover .overlay {
+	opacity: 1;
+}
+.skin-badge {
+	position: absolute;
+    bottom: 85px;
+    right: calc( 50% - 13px );
+    width: 26px;
+}
+
+.overlay {
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	background: #00000080;
+	transition: all .2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn {
+	outline: none;
+	border-radius: 25px;
+	border: none;
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.buy-btn {
+	padding: 10px 25px;
+	font-size: 26px;
+	font-weight: 700;
+	color: white;
+	background: #ff3333;
+}
+
+.buy-btn:hover {
+	color: #ff3333;
+	background: white;
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	background: #00000080;
+	transition: all .2s;
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	gap: 20px;
+}
+
+.modal-buy {
+	position: relative;
+	width: 800px;
+	height: 200px;
+	border-radius: 20px;
+	background: linear-gradient(165deg, rgba(17, 0, 119, 1) 0%,
+		rgba(108, 13, 152, 1) 50%, rgba(47, 0, 98, 1) 100%);
+	width: 800px;
+}
+
+.modal-buy .close-icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.modal-question {
+	font-size: 22px;
+	font-weght: 500;
+	color: white;
+	text-align: center;
+}
+
+.modal-btn-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.modal-btn {
+	font-size: 22px;
+	font-weight: 600;
+	color: white;
+	padding: 10px;
+	min-width: 110px;
+}
+
+.ok-btn {
+	background: blue;
+}
+
+.ok-btn:hover {
+	background: white;
+	color: blue;
+}
+
+.cancel-btn {
+	background: black;
+}
+
+.cancel-btn:hover {
+	background: white;
+	color: black;
+}
+
+.current-balance {
+	position: absolute;
+	top: 0px;
+	right: 20px;
+	font-size: 20px;
+}
